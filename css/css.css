@@ -1,0 +1,34 @@
+.button{
+			background: #acf;
+			cursor:pointer;
+			width:60px;
+			height:30px;
+			border-radius: 4px;
+			font-weight: bold;
+		}
+		.button:HOVER {background:#49f;color:#fff}
+		.divc{
+			background: #6ff;
+			text-align: center;
+			padding-top: 15px;
+			padding-bottom: 10px;
+			margin-left: 25%;
+			margin-right: 25%;
+			margin-top: 4%;
+			border: 2px dashed;
+			border-color: #f66;
+			border-radius: 4px;
+		}
+		.inputc{
+			height:25px;
+			border-radius: 4px;
+			padding-left:5px;
+			 background:#fee
+		}
+		.notec{
+			float:right;
+			color:#f00;
+			margin-right: 5px;
+			font-weight: bold;
+			visibility: hidden;
+		}

@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>倒计时</title>
+<link rel="stylesheet" type="text/css" href="css/css.css">
+<script type="text/javascript" src="js/js.js"></script>
+</head>
+
+<body style="background: #eee;">
+
+<div class="divc">
+	
+	<label style="font-weight: bold;">请选择铃声：</label>
+	<select id="v" style="height:30px;border-radius: 4px;">
+		<option value="1">铃声 一 </option>
+		<option value="2">铃声 二</option>
+		<option value="3">铃声 三</option>
+	</select>
+	</br>
+	</br>
+	
+	<label style="font-weight:bold;margin-left: -22%;">倒计时：</label></br></br>
+	
+	<input id="s" value="0" class="inputc">
+	<label style="font-weight: bold;">时</label>
+	</br>
+	</br>
+	
+	<input id="f" value="1" class="inputc">
+	<label style="font-weight: bold;">分</label>
+	</br>
+	</br>
+	
+	<input id="m" value="6" class="inputc">
+	<label style="font-weight: bold;">秒</label>
+	</br>
+	</br>
+	
+	<button onClick="start()" class="button">开 始</button>
+	<button onClick="stop()" class="button"style="margin-right: -15%;">停止</button>
+	
+	<audio src="music/2.mp3" id="music" controls="controls"loop="loop" style="display: none;"></audio>
+	<label id="note" class="notec">倒计时正在进行！</label>
+	
+</div>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+
+</div>
+</body>
+</html>
+

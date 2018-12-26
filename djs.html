@@ -1,0 +1,136 @@
+    
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>MyVideo</title>
+<link rel="stylesheet" type="text/css" href="css/css.css"/>
+<script type="text/javascript" src="js/js.js"></script>
+</head>
+
+<body style="background: #eee;">
+
+<div class="divc">
+	
+	<label style="font-weight: bold;">请选择铃声：</label>
+	<select id="v" style="height:30px;border-radius: 4px;">
+		<option value="1">铃声 一 </option>
+		<option value="2">铃声 二</option>
+		<option value="3">铃声 三</option>
+	</select>
+	</br>
+	</br>
+	
+	<label style="font-weight:bold;margin-left: -22%;">倒计时：</label></br></br>
+	
+	<input id="s" value="0" class="inputc"/>
+	<label style="font-weight: bold;">时</label>
+	</br>
+	</br>
+	
+	<input id="f" value="1" class="inputc"/>
+	<label style="font-weight: bold;">分</label>
+	</br>
+	</br>
+	
+	<input id="m" value="6" class="inputc"/>
+	<label style="font-weight: bold;">秒</label>
+	</br>
+	</br>
+	
+	<button onClick="start()" class="button">开 始</button>
+	<button onClick="stop()" class="button"style="margin-right: -15%;">停止</button>
+	
+	<audio src="music/2.mp3" id="music" controls="controls"loop="loop" style="display: none;"></audio>
+	<label id="note" class="notec">倒计时正在进行！</label>
+	
+</div>
+
+</body>
+<script>
+k = 1;
+	ks = 1;
+
+	function start() {
+	    ks = 1;
+	    document.getElementById("note").style.visibility = "visible";
+	    s = document.getElementById("s").value;
+	    f = document.getElementById("f").value;
+	    m = document.getElementById("m").value;
+	    if (k == 1) {
+	        k = 0;
+	        djuge();
+	    } else {
+	        alert("璇峰厛鍋滄涓婃鐨勫€掕鏃堕椆閾冿紝鍐嶅紑濮嬫柊鐨勶紒");
+	    }
+	}
+
+	function djs() {
+	    setTimeout("djuge()", 1000);
+	}
+
+	function djuge() {
+	    if (ks == 1) { //鍋滄鎴栧紑濮�
+	        document.getElementById("m").value = m;
+	        if (m > 0) {
+	            m--;
+	            djs();
+	        } else {
+	            if (f > 0) {
+	                f--;
+	                document.getElementById("f").value = f;
+	                m = 59;
+	                djs();
+	            } else {
+	                if (s > 0) {
+	                    s--;
+	                    document.getElementById("s").value = s;
+	                    f = 59;
+	                    djs();
+	                } else {
+	                    cancel();
+	                }
+	            }
+	        }
+	    } //鍋滄鎴栧紑濮�
+	}
+
+	function cancel() {
+	    var audio = document.getElementById('music');
+	    document.getElementById('music').src = "music/" + document.getElementById("v").value + ".mp3";
+	    audio.play();
+	    document.getElementById("note").innerHTML = "鍊掕鏃跺凡缁撴潫锛侊紒";
+	    a = 1;
+	    action();
+	}
+
+	function stop() {
+	    //k=0 杩涜鍊掕鏃讹紱k=1闊充箰鎾斁涓�
+	    ks = 0; //鍋滄鍊掕鏃�
+	    var audio = document.getElementById('music');
+	    audio.pause();
+	    document.getElementById("note").innerHTML = "鍊掕鏃舵鍦ㄨ繘琛岋紒";
+	    document.getElementById("note").style.visibility = "hidden";
+	    a = 2;
+	    k = 1; //鍏坘s璧嬪€�1鍦╧寮€濮嬪惊鐜�
+	}
+
+	function action() {
+	    setTimeout("ac()", 1000);
+	}
+
+	function ac() {
+	    if (a == 1) {
+	        document.getElementById("note").style.visibility = "visible";
+	        a = 0;
+	        action();
+	    } else if (a == 0) {
+	        document.getElementById("note").style.visibility = "hidden";
+	        a = 1;
+	        action();
+	    }
+	}
+</script>
+</html>
+
+    
